@@ -1,0 +1,122 @@
+:root {
+    --my-padding: 0.4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    color:rgb(7, 20, 136);
+    display: grid; /**loob automaatselt lehele read**/
+    font-size: 2rem;
+    gap: 10px; /**loob ridade vahele vahed**/
+    grid-template-columns: 1fr 1fr 1fr 1fr; /**täpsustab mitu veergu**/
+    grid-template-rows: 0.5fr 2fr 1fr 1fr 0.5fr; /**täpsustab mitu rida**/
+    grid-template-areas: 
+    "header menu menu menu"
+    "hero hero hero hero"
+    "main main image image"
+    "main main extra extra"
+    "banner banner banner banner"
+    ;
+    height: 100vh; /**võtab kogu veebilehe kõrgusest 100%**/
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.header {
+    align-items: center;
+    display: grid;
+    background-color:rgba(142, 141, 230, 0.76);
+    grid-area: header;
+    padding: var(--my-padding);
+}
+
+.menu {
+    align-items: center;
+    display: grid;
+    background-color:rgba(241, 103, 195, 0.664);
+    grid-area: menu;
+    padding: var(--my-padding);
+}
+
+.hero {
+    align-items: center;
+    display: grid;
+    background-color:rgba(255, 153, 86, 0.76);
+    grid-area: hero;
+    padding: var(--my-padding);
+}
+
+.main {
+    align-items: center;
+    display: grid;
+    background-color:rgba(248, 252, 39, 0.596);
+    grid-area: main;
+    padding: var(--my-padding);
+}
+
+.image {
+    align-items: center;
+    display: grid;
+    background-color:rgba(178, 247, 151, 0.596);
+    grid-area: image;
+    padding: var(--my-padding);
+}
+
+.extra {
+    align-items: center;
+    display: grid;
+    background-color:rgba(190, 89, 177, 0.596);
+    grid-area: extra;
+    padding: var(--my-padding);
+}
+
+.banner {
+    align-items: center;
+    display: grid;
+    background-color:rgba(255, 238, 191, 0.808);
+    grid-area: banner;
+    padding: var(--my-padding);
+}
+
+@media (max-width: 1024px) { /**Tablet - kuni läpaka laiuseni**/
+}
+    .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr; /**iga osa võtab 50% lehekülje laiusest**/
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+    "header header header header"
+    "hero hero hero hero"
+    "menu main main main"
+    "menu main main main"
+    "menu banner banner banner"
+    "menu extra extra image"
+     ;
+    }
+
+    @media (max-width: 480px) { /**kuni nutitelefoni laiuseni**/
+        .sidebar {
+            display: block;
+        }
+
+
+        .container {
+            gap: 0;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, 1fr);
+            grid-template-areas: 
+            "header"
+            "menu"
+            "hero"
+            "main"
+            "banner"
+            "extra"
+            "image"
+            ;
+        }
+    }
